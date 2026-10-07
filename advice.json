@@ -1,0 +1,43 @@
+{
+  "_review_status": "DRAFT general guidance. Must be reviewed and edited by an agricultural extension officer (AGRITEX) before farmers use it.",
+  "healthy": {
+    "summary": "This leaf shows no sign of maize leaf blight or maize streak virus, the two diseases this tool looks for.",
+    "steps": [
+      "Keep checking your crop every week, especially after rain and during warm, humid spells.",
+      "Photograph the leaf again if you notice streaks, long tan spots or leaf damage.",
+      "Remember that this tool does not check for pests such as fall armyworm or for nutrient problems."
+    ],
+    "get_help": "Contact your extension officer if the plants look unhealthy even though this leaf looks fine."
+  },
+  "maize_leaf_blight": {
+    "summary": "Long, grey-green to tan spots shaped like cigars on the leaves point to maize leaf blight (northern corn leaf blight). It spreads fastest in cool, wet, humid weather.",
+    "steps": [
+      "Walk through the field and note how many plants have the long tan spots, and whether they are on the upper leaves.",
+      "Avoid working among the plants while the leaves are wet, so you do not carry the spores.",
+      "After harvest, bury or plough in infected crop residue and rotate with a crop that is not a cereal.",
+      "Next season, ask your seed supplier or extension officer for blight-tolerant varieties.",
+      "Ask your extension officer before buying or spraying any fungicide. It is only worthwhile in some situations."
+    ],
+    "get_help": "Contact your extension officer soon if many plants are affected before tasselling."
+  },
+  "maize_streak_virus": {
+    "summary": "Thin yellow streaks running along the leaf veins point to maize streak virus. Small insects called leafhoppers carry it from plant to plant. Infected plants cannot be cured.",
+    "steps": [
+      "Pull out badly affected young plants early and bury or burn them so they stop feeding the leafhoppers.",
+      "Weed the field and its edges, because wild grasses carry both the virus and the insects.",
+      "Avoid planting next to older maize or very late plantings, which keep leafhoppers around.",
+      "Next season, ask your seed supplier or extension officer for streak-tolerant varieties.",
+      "Do not spray fungicide. This is a virus, so fungicide will not help."
+    ],
+    "get_help": "Contact your extension officer if the streaks are spreading across the field."
+  },
+  "uncertain": {
+    "summary": "The tool could not tell clearly what this photo shows, so please do not rely on the result.",
+    "steps": [
+      "Take a new photo of a single leaf that fills most of the picture.",
+      "Use daylight, avoid strong shadows and direct sun, and hold the phone steady so the leaf is sharp.",
+      "Photograph a leaf that shows the problem, and include the whole width of the leaf."
+    ],
+    "get_help": "If the new photo is still unclear, show the plant to your extension officer."
+  }
+}

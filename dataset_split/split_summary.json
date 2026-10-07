@@ -1,0 +1,35 @@
+{
+  "test": {
+    "common_rust": 277,
+    "gray_leaf_spot": 400,
+    "healthy": 362,
+    "magnesium_deficiency": 18,
+    "maize_streak_virus": 12,
+    "nitrogen_deficiency": 14,
+    "northern_leaf_blight": 498,
+    "phosphorus_deficiency": 16,
+    "potassium_deficiency": 8
+  },
+  "val": {
+    "common_rust": 277,
+    "gray_leaf_spot": 400,
+    "healthy": 362,
+    "magnesium_deficiency": 18,
+    "maize_streak_virus": 12,
+    "nitrogen_deficiency": 14,
+    "northern_leaf_blight": 498,
+    "phosphorus_deficiency": 16,
+    "potassium_deficiency": 8
+  },
+  "train": {
+    "common_rust": 1298,
+    "gray_leaf_spot": 1873,
+    "healthy": 1692,
+    "magnesium_deficiency": 87,
+    "maize_streak_virus": 57,
+    "nitrogen_deficiency": 71,
+    "northern_leaf_blight": 2330,
+    "phosphorus_deficiency": 81,
+    "potassium_deficiency": 40
+  }
+}

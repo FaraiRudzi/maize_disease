@@ -1,0 +1,202 @@
+{
+  "classes": [
+    "common_rust",
+    "gray_leaf_spot",
+    "healthy",
+    "magnesium_deficiency",
+    "maize_streak_virus",
+    "nitrogen_deficiency",
+    "northern_leaf_blight",
+    "phosphorus_deficiency",
+    "potassium_deficiency"
+  ],
+  "train_counts": {
+    "common_rust": 1298,
+    "gray_leaf_spot": 1873,
+    "healthy": 1692,
+    "magnesium_deficiency": 87,
+    "maize_streak_virus": 57,
+    "nitrogen_deficiency": 71,
+    "northern_leaf_blight": 2330,
+    "phosphorus_deficiency": 81,
+    "potassium_deficiency": 40
+  },
+  "test_report": {
+    "common_rust": {
+      "precision": 0.9066666666666666,
+      "recall": 0.9819494584837545,
+      "f1-score": 0.9428076256499134,
+      "support": 277.0
+    },
+    "gray_leaf_spot": {
+      "precision": 0.887468030690537,
+      "recall": 0.8675,
+      "f1-score": 0.877370417193426,
+      "support": 400.0
+    },
+    "healthy": {
+      "precision": 0.9752747252747253,
+      "recall": 0.9806629834254144,
+      "f1-score": 0.977961432506887,
+      "support": 362.0
+    },
+    "magnesium_deficiency": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.9090909090909091,
+      "support": 18.0
+    },
+    "maize_streak_virus": {
+      "precision": 0.8571428571428571,
+      "recall": 1.0,
+      "f1-score": 0.9230769230769231,
+      "support": 12.0
+    },
+    "nitrogen_deficiency": {
+      "precision": 0.75,
+      "recall": 0.6428571428571429,
+      "f1-score": 0.6923076923076923,
+      "support": 14.0
+    },
+    "northern_leaf_blight": {
+      "precision": 0.9375,
+      "recall": 0.8433734939759037,
+      "f1-score": 0.8879492600422833,
+      "support": 498.0
+    },
+    "phosphorus_deficiency": {
+      "precision": 0.4375,
+      "recall": 0.875,
+      "f1-score": 0.5833333333333334,
+      "support": 16.0
+    },
+    "potassium_deficiency": {
+      "precision": 0.20689655172413793,
+      "recall": 0.75,
+      "f1-score": 0.32432432432432434,
+      "support": 8.0
+    },
+    "accuracy": 0.9034267912772586,
+    "macro avg": {
+      "precision": 0.7731609812776583,
+      "recall": 0.863852934675061,
+      "f1-score": 0.7909135463917436,
+      "support": 1605.0
+    },
+    "weighted avg": {
+      "precision": 0.9180680474715509,
+      "recall": 0.9034267912772586,
+      "f1-score": 0.9080295603188421,
+      "support": 1605.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      272,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      3,
+      0
+    ],
+    [
+      9,
+      347,
+      3,
+      0,
+      0,
+      0,
+      25,
+      8,
+      8
+    ],
+    [
+      0,
+      0,
+      355,
+      0,
+      0,
+      0,
+      2,
+      2,
+      3
+    ],
+    [
+      0,
+      0,
+      1,
+      15,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      12,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      9,
+      0,
+      0,
+      5
+    ],
+    [
+      19,
+      43,
+      5,
+      0,
+      2,
+      2,
+      420,
+      2,
+      5
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      14,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      6
+    ]
+  ],
+  "args": {
+    "data": "dataset_split",
+    "out": "model",
+    "img": 224,
+    "batch": 32,
+    "epochs": 8,
+    "fine_tune_epochs": 5
+  }
+}

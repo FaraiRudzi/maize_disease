@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="intro">
+  <h1>Check a maize leaf</h1>
+  <p>Photograph one leaf in daylight. You get a likely diagnosis and what to do next.</p>
+</section>
+
+{% if thanks %}<p class="note ok">Thank you. Your answer helps improve the tool.</p>{% endif %}
+{% if error %}<p class="note bad" role="alert">{{ error }}</p>{% endif %}
+
+<form id="check-form" class="panel" method="post" action="{{ url_for('diagnose') }}" enctype="multipart/form-data">
+  <label for="photo">Leaf photo</label>
+  <input id="photo" name="photo" type="file" accept="image/*" required>
+  <img id="preview" alt="Preview of the chosen leaf" hidden>
+
+  <label for="location">Where is this field? (ward or district)</label>
+  <input id="location" name="location" type="text" maxlength="120" autocomplete="off">
+  <input type="hidden" id="lat" name="lat">
+  <input type="hidden" id="lon" name="lon">
+  <button type="button" id="use-location" class="ghost" hidden>Add my phone's location</button>
+
+  <button type="submit">Check this leaf</button>
+</form>
+
+{% if result %}
+<section class="panel result {{ 'unsure' if result.uncertain else result.label }}" aria-live="polite">
+  {% if result.uncertain %}
+    <h2>Not sure about this one</h2>
+    <p class="conf">Best guess: {{ result.label_name }} ({{ result.confidence }}% confident). That is too low to rely on.</p>
+  {% else %}
+    <h2>{{ result.label_name }}</h2>
+    <p class="conf">{{ result.confidence }}% confident</p>
+  {% endif %}
+  <div class="bar" role="img" aria-label="Confidence {{ result.confidence }} percent"><span style="width: {{ result.confidence }}%"></span></div>
+
+  <p>{{ result.advice.summary }}</p>
+  <h3>What to do</h3>
+  <ol>{% for step in result.advice.steps %}<li>{{ step }}</li>{% endfor %}</ol>
+  <p class="help"><strong>Get help:</strong> {{ result.advice.get_help }}</p>
+
+  <details>
+    <summary>Other possibilities</summary>
+    <ul>{% for s in result.scores %}<li>{{ s.name }}: {{ s.pct }}%</li>{% endfor %}</ul>
+  </details>
+
+  <form method="post" action="{{ url_for('feedback', case_id=result.case_id) }}" class="feedback">
+    <p>Does this match what you see on the plant?</p>
+    <button name="value" value="correct">Yes</button>
+    <button name="value" value="incorrect">No</button>
+    <button name="value" value="unsure">Not sure</button>
+  </form>
+</section>
+{% endif %}
+{% endblock %}

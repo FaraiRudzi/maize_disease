@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Officer sign in{% endblock %}
+{% block content %}
+<section class="intro"><h1>Extension officer sign in</h1></section>
+{% if error %}<p class="note bad" role="alert">{{ error }}</p>{% endif %}
+<form class="panel" method="post">
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password" required autofocus>
+  <button type="submit">Sign in</button>
+</form>
+{% endblock %}

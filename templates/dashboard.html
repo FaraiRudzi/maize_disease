@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Reported cases{% endblock %}
+{% macro bars(rows, key) %}
+  {% set top = (rows | map(attribute='n') | max) if rows else 1 %}
+  {% for r in rows %}
+  <div class="row">
+    <span class="lbl">{{ r[key] }}</span>
+    <span class="track"><span style="width: {{ (r.n / top * 100) | round(0) }}%"></span></span>
+    <span class="num">{{ r.n }}</span>
+  </div>
+  {% else %}<p class="empty">No cases yet.</p>{% endfor %}
+{% endmacro %}
+
+{% block content %}
+<section class="intro">
+  <h1>Reported cases</h1>
+  <p><a href="{{ url_for('export_csv') }}">Download all cases (CSV)</a>{% if protected %} &nbsp;|&nbsp; <a href="{{ url_for('logout') }}">Sign out</a>{% endif %}</p>
+</section>
+{% if not protected %}<p class="note bad">This dashboard has no password. Set DASHBOARD_PASSWORD before sharing it with anyone.</p>{% endif %}
+
+<section class="stats">
+  <div><strong>{{ s.total }}</strong><span>photos checked</span></div>
+  <div><strong>{{ s.diseased }}</strong><span>with a disease detected</span></div>
+  <div><strong>{{ s.uncertain }}</strong><span>too uncertain to call</span></div>
+  <div><strong>{{ s.accuracy_text }}</strong><span>confirmed correct by users</span></div>
+</section>
+
+<div class="grid">
+  <section class="panel"><h2>Results by type</h2>{{ bars(s.by_class, 'name') }}</section>
+  <section class="panel"><h2>Where diseases are reported</h2>{{ bars(s.by_location, 'loc') }}</section>
+  <section class="panel"><h2>Disease cases, last 14 days</h2>{{ bars(s.daily, 'day') }}</section>
+</div>
+
+<section class="panel">
+  <h2>Latest photos</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>#</th><th>Time</th><th>Result</th><th>Confidence</th><th>Location</th><th>User said</th><th>Photo</th></tr></thead>
+    <tbody>
+    {% for r in s.recent %}
+      <tr>
+        <td>{{ r.id }}</td><td>{{ r.created_at }}</td><td>{{ r.name }}</td><td>{{ r.pct }}%</td>
+        <td>{{ r.location_text or 'Not given' }}</td><td>{{ r.feedback or '-' }}</td>
+        <td><a href="{{ url_for('uploaded', name=r.image_file) }}">View</a></td>
+      </tr>
+    {% else %}<tr><td colspan="7" class="empty">No photos yet. Check a leaf on the home page to see it here.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+{% endblock %}
